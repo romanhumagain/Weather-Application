@@ -1,0 +1,59 @@
+body {
+  background-color: #e9f7ff;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+.weather-card {
+  margin: 5% auto;
+  background: linear-gradient(135deg, #83a4d4, #b6fbff);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  transition: transform 0.2s;
+  margin-top: 100px;
+}
+
+.weather-card:hover {
+  transform: scale(1.03);
+}
+
+.city-input {
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.city-input:focus {
+  border-color: #83a4d4;
+  box-shadow: 0 0 5px rgba(131, 164, 212, 0.5);
+}
+
+.btn-search {
+  transition: background-color 0.3s;
+}
+
+.btn-search:hover {
+  background-color: #83a4d4;
+}
+
+.temperature {
+  font-size: 2.5rem;
+  transition: font-size 0.3s;
+}
+
+.temperature:hover {
+  font-size: 3rem;
+}
+
+.city-name {
+  margin-bottom: 1rem;
+}
+
+.weather-icon {
+  width: 80px;
+  transition: width 0.3s;
+}
+
+.weather-icon:hover {
+  width: 90px;
+}

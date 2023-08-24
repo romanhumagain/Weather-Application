@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Professional Weather App</title>
+</head>
+
+<body>
+
+    <div class="overlay"></div> <!-- Adding an overlay -->
+
+    <div class="container">
+        <div class="weather-card">
+            <form method="post" class="mb-3">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" class="form-control city-input" id="city" name="city"
+                        placeholder="Enter city...">
+                    <button type="submit" class="btn btn-search">Search</button>
+                </div>
+            </form>
+
+            {% if description %}
+            <h1 class="text-center city-name">{{ city }}</h1>
+            <h2 class="text-center temperature">{{ temp }}°C</h2>
+            <h4 class="text-center">{{ description }}</h4>
+            <div class="text-center">
+                <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="Weather icon" class="weather-icon">
+            </div>
+            <p class="text-center mt-3">{{ day }}</p>
+
+            {% if rain_notification %}
+            <div class="alert alert-info" role="alert">
+                {{ rain_notification }}
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/3008509/pexels-photo-3008509.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black overlay with 50% opacity */
+            z-index: -1;
+            /* Ensure it's behind the content */
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
